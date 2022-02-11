@@ -29,7 +29,7 @@ export default function CaseStudy({ caseStudy }) {
 }
 
 export async function getStaticProps() {
-  const prismicRepo = process.env.PRISMIC_REPO_URL;
+  const prismicRepo = edapp - marley - spoon - casestudy - varun;
   const endpoint = prismic.getEndpoint(prismicRepo);
   const client = prismic.createClient(endpoint);
 
