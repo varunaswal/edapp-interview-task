@@ -7,37 +7,37 @@ import HeaderSection from "../components/HeaderSection";
 const resolver = ({ sliceName }) => Slices[sliceName];
 
 export default function CaseStudy({ caseStudy }) {
-  return (
-    <div>
-      <Head>
-        <title>Edapp Marley Spoon case study</title>
-        <meta name="description" content="Edapp case study for marley spoon" />
-      </Head>
+	return (
+		<div>
+			<Head>
+				<title>Edapp Marley Spoon case study</title>
+				<meta name="description" content="Edapp case study for marley spoon" />
+			</Head>
 
-      <main>
-        <HeaderSection caseStudy={caseStudy} />
-        <SliceZone
-          slices={caseStudy.body}
-          resolver={resolver}
-          components={Slices}
-        />
-      </main>
+			<main>
+				<HeaderSection caseStudy={caseStudy} />
+				<SliceZone
+					slices={caseStudy.body}
+					resolver={resolver}
+					components={Slices}
+				/>
+			</main>
 
-      <footer></footer>
-    </div>
-  );
+			<footer></footer>
+		</div>
+	);
 }
 
 export async function getStaticProps() {
-  const prismicRepo = edapp - marley - spoon - casestudy - varun;
-  const endpoint = prismic.getEndpoint(prismicRepo);
-  const client = prismic.createClient(endpoint);
+	const prismicRepo = "edapp-marley-spoon-casestudy-varun";
+	const endpoint = prismic.getEndpoint(prismicRepo);
+	const client = prismic.createClient(endpoint);
 
-  const caseStudy = await client.getByUID("case_study", "marley-spoon");
+	const caseStudy = await client.getByUID("case_study", "marley-spoon");
 
-  return {
-    props: {
-      caseStudy: caseStudy.data,
-    },
-  };
+	return {
+		props: {
+			caseStudy: caseStudy.data,
+		},
+	};
 }
